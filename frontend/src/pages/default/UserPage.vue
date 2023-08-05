@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <pre>{{ user }}</pre>
-    <pre>{{ token }}</pre>
+  <div class="row">
+    <pre>{{ user }}  {{ token }} </pre>
   </div>
 </template>
 

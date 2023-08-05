@@ -13,7 +13,7 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+        <q-item-label header> Links </q-item-label>
         <q-item clickable tag="a" :to="{ name: link.name }" v-for="link in essentialLinks" :key="link.name">
           <q-item-section>
             <q-item-label>{{ link.title }}</q-item-label>
@@ -42,11 +42,7 @@ const ready = ref(false)
 
 const essentialLinks: { title: string, name: string }[] = [
   {
-    title: 'milestones',
-    name: 'plan'
-  },
-  {
-    title: 'user info',
+    title: 'User infomation',
     name: 'user'
   },
 ];

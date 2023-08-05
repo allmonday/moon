@@ -34,7 +34,7 @@ const go = async () => {
     } else {
         console.error('jwt verify failed')
     }
-    router.push({ name: 'plan' })
+    router.push({ name: 'user' })
 }
 onMounted(async () => {
     await go()

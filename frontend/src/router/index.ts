@@ -36,7 +36,7 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach((to, _) => {
     if (['login', 'auth'].includes(to.name as string)) {
       if (verifyToken() === 'verified') {
-        return { name: 'plan' };
+        return { name: 'user' };
       } else {
         return true;
       }

@@ -19,14 +19,9 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/dashbaord',
-    redirect: 'plan',
+    redirect: 'user',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      {
-        name: 'plan',
-        path: 'plan',
-        component: () => import('pages/DefaultPage.vue'),
-      },
       {
         name: 'user',
         path: 'user',
