@@ -25,6 +25,7 @@ router.include_router(
         auth_backend,
         SECRET,
         redirect_url=settings.redirect_url,  # loop from frontend
-        is_verified_by_default=True),
+        # is_verified_by_default=True
+        is_verified_by_default=False),
     prefix="/github",
 )

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, Depends
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
@@ -7,6 +7,8 @@ from fastapi.routing import APIRoute
 # resource / entity
 import src.router.user.router as user_router
 import src.router.auth.router as auth_router
+import src.router.sample.router as sample_router
+import src.service.user.config as user_config
 
 app = FastAPI()
 
@@ -21,11 +23,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# public, for auth
+api_router.include_router(auth_router.router)
+
+
+# for active users
+# manually change is_super as True in DB
 for router in [
     user_router,
-    auth_router
+    sample_router
 ]:
-    api_router.include_router(router.router)
+    api_router.include_router(router.router, dependencies=[
+                              Depends(user_config.current_verified_user)])
 
 app.include_router(api_router)
 
